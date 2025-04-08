@@ -7,6 +7,26 @@ html, body {
     color: #151515;
     font-family: Inter, sans-serif;
     box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+main {
+    visibility: hidden;
+    display: grid;
+    width: 80%;
+    height: 80%;
+    place-items: center;
+}
+
+#main-container {
+    text-align: center;
+    white-space: pre;
+}
+
+main * {
+    margin: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,13 +48,18 @@ html, body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: opacity 200ms;
+    z-index: 999;
 }
 
 #loading-logo {
     width: 150px;
     height: 150px;
-    background-size: contain;
     animation: skip 800ms ease-in-out infinite;
+    background-image: url("../img/logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 @keyframes skip {
@@ -84,6 +109,30 @@ html, body {
     background-color: #1515157F;
     padding: 0.25em 0.5em 0.25em 0.5em;
     border-radius: 0.25em;
+    text-align: center;
+    white-space: pre;
+}
+
+@media (scripting: none) {
+    #loading-error {
+        display: block;
+        text-indent: -9999px;
+        line-height: 0;
+        color: transparent;
+        opacity: 1;
+    }
+
+    #loading-logo, #loading-circle {
+        display: none;
+    }
+
+    #loading-error::before {
+        content: "Please enable JavaScript in your browser to run this application.";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+        color: #f5f5f5;
+    }
 }
 
 .outline {
@@ -102,29 +151,29 @@ html, body {
     -webkit-text-stroke: attr(data-stroke px) #151515;
 }
 
-@media (scripting: none), (scripting: initial-only) {
-    #loading-error {
-        display: block;
-        opacity: 1;
-    }
-
-    #loading-logo, #loading-circle {
-        display: none;
-    }
-}
-
-a {
+button {
     text-decoration: none;
     color: inherit;
     border-radius: 0.35em;
     border: 1px solid;
     border-color: inherit;
+    background: none;
     padding: 0.25em 0.5em 0.25em 0.5em;
     transition: opacity 200ms ease-in-out;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+button:hover {
+    opacity: 0.75;
+}
+
+a {
+    color: inherit;
 }
 
 a:hover {
-    opacity: 0.75;
+    opacity: 0.8;
 }
 
 img {
@@ -144,4 +193,34 @@ img {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.fill-in-the-blanks {
+    font: inherit;
+    color: inherit;
+    background: inherit;
+    border: none;
+    border-bottom: 2px solid;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.fill-in-the-blanks::placeholder {
+    visibility: hidden;
+}
+
+.fill-in-the-blanks:focus {
+    outline: none;
+    border-bottom: 2px solid #22BCFC;
+}
+
+.placeholder {
+    position: absolute;
+    font-size: 0.5em;
+    opacity: 0.5;
+}
+
+.temp {
+    visibility: hidden;
 }
