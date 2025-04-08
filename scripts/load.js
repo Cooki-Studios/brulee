@@ -67,13 +67,13 @@ function runTutorial() {
     const el = document.getElementById("1");
     const text = document.getElementById("tutorial-text");
 
-    let wait = setTimeout(function () {
-        text.textContent += "\n\rThat means you can type in it by the way.";
-    }, 10000);
-
     el.onclick = () => {
         el.onclick = () => {};
         text.textContent = "This is an input. Specifically a text input.";
+
+        let wait = setTimeout(function () {
+            text.textContent += "\n\rThat means you can type in it by the way.";
+        }, 10000);
 
         let tutorial1 = () => {
             el.removeEventListener("input", tutorial1);
