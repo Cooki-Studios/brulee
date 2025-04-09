@@ -1,0 +1,65 @@
+#loading-screen {
+    background-color: #A822FC;
+}
+
+#loading-logo {
+    background-image: url("../img/logo.svg");
+}
+
+#loading-torch {
+    width: 150px;
+    height: 150px;
+    background-image: url("../img/blowtorch.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+    /*rotate: -45deg;*/
+    top: -60px;
+    animation: torch 1s linear infinite;
+    offset-path: path("M 70,70 a 40,20 0 1,0 0.01,0");
+    offset-rotate: -45deg;
+}
+
+/*@keyframes torch {*/
+/*    0%   { translate: -50px 10px; rotate: -45deg; }*/
+/*    25%  { translate: 0 50px; rotate: -45deg; }*/
+/*    50%  { translate: 50px 10px; rotate: -45deg; }*/
+/*    75%  { translate: 0 -30px; rotate: -45deg; }*/
+/*    100% { translate: -50px 10px; rotate: -45deg; }*/
+/*}*/
+
+@keyframes torch {
+    0% {
+        offset-distance: 0;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#main-container {
+    user-select: none;
+}
+
+main {
+    position: relative;
+    cursor: default;
+}
+
+main:hover, main *:hover {
+    --hover-outline-color: transparent;
+    outline: 2px dashed var(--hover-outline-color, transparent);
+    background-color: color-mix(in srgb, var(--hover-outline-color, transparent) 5%, transparent);
+    pointer-events: auto;
+}

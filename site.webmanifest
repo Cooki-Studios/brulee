@@ -1,0 +1,47 @@
+{
+	"name": "Cooki Brûlée",
+	"short_name": "Brûlée",
+	"start_url": "https://cookistudios.com/brulee",
+	"id": "Cooki_Brulee",
+	"description": "Memorise Content",
+	"theme_color": "#151515",
+	"display": "standalone",
+	"scope": "https://cookistudios.com/brulee",
+	"icons": [
+		{
+			"src": "https://cookistudios.com/brulee/img/icons/android-chrome-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "https://cookistudios.com/brulee/img/icons/android-chrome-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "https://cookistudios.com/brulee/img/icons/android-chrome-512x512.png",
+			"type": "image/png",
+			"sizes": "any",
+			"purpose": "any maskable"
+		}
+	],
+	"shortcuts": [
+		{
+			"name": "Script Editor",
+			"short_name": "Scripting",
+			"url": "https://cookistudios.com/brulee/scripting"
+		}
+	],
+	"prefer_related_applications": false,
+	"background_color": "#22BCFC",
+	"edge_side_panel": {
+		"preferred_width": 800
+	},
+	"categories": [
+		"productivity",
+		"utilities",
+		"education"
+	]
+}

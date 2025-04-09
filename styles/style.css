@@ -3,7 +3,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background: #f5f5f5;
     color: #151515;
     font-family: Inter, sans-serif;
     box-sizing: border-box;
@@ -23,17 +23,11 @@ main {
 #main-container {
     text-align: center;
     white-space: pre;
+    position: relative;
 }
 
 main * {
     margin: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-    html, body {
-        background: #151515;
-        color: #f5f5f5;
-    }
 }
 
 #loading-screen {
@@ -122,7 +116,7 @@ main * {
         opacity: 1;
     }
 
-    #loading-logo, #loading-circle {
+    #loading-logo, #loading-circle, #loading-torch {
         display: none;
     }
 
@@ -162,6 +156,7 @@ button {
     transition: opacity 200ms ease-in-out;
     cursor: pointer;
     font-family: inherit;
+    user-select: none;
 }
 
 button:hover {
@@ -218,9 +213,30 @@ img {
 .placeholder {
     position: absolute;
     font-size: 0.5em;
-    opacity: 0.5;
+    color: #15151580;
 }
 
 .temp {
     visibility: hidden;
+}
+
+.no-size {
+    width: 0;
+    height: 0;
+}
+
+#swap-page {
+    position: absolute;
+    top: calc(100% - 4em);
+}
+
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background: #151515;
+        color: #f5f5f5;
+    }
+
+    .placeholder {
+        color: #f5f5f580;
+    }
 }

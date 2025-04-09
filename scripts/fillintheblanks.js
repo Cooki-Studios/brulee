@@ -51,8 +51,10 @@ function resizeInput(input) {
     temp.className = "temp";
     input.parentNode.appendChild(temp);
 
-    if (temp.offsetWidth <= window.innerWidth/1.5) {
+    if (temp.offsetWidth <= window.innerWidth/1.75) {
         input.style.width = `${temp.offsetWidth}px`;
+    } else {
+        input.style.width = `${window.innerWidth/1.75}px`;
     }
     temp.remove();
 }

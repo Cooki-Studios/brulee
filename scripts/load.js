@@ -11,12 +11,13 @@ let longLoad = setTimeout(() => {
 }, 10000);
 
 function moveHints() {
+    const mainRect = document.getElementById("main-container").getBoundingClientRect();
     for (const span of document.getElementsByClassName("placeholder")) {
         if (span.nextSibling.nodeName === "INPUT") {
             const rect = span.nextSibling.getBoundingClientRect();
             span.style.position = "absolute";
-            span.style.top = `${window.scrollY + rect.top + rect.height + 4}px`;
-            span.style.left = `${window.scrollX + rect.left + (rect.width / 2) - (span.offsetWidth / 2)}px`;
+            span.style.top = `${rect.top - mainRect.top + rect.height + 4}px`;
+            span.style.left = `${rect.left - mainRect.left + (rect.width / 2) - (span.offsetWidth / 2)}px`;
         }
     }
 }
@@ -49,42 +50,37 @@ window.onload = function () {
             });
         });
     }
-
-    setTimeout(() => {
-        document.getElementById("loading-error").style.display = "none";
-        document.querySelector("main").style.visibility = "visible";
-        document.getElementById("loading-screen").style.opacity = "0";
-        setTimeout(() => {
-            document.getElementById("loading-screen").remove();
-        }, 200);
-        document.getElementById("loading-screen").style.pointerEvents = "none";
-
-        runTutorial();
-    }, 500);
 }
 
-function runTutorial() {
-    const el = document.getElementById("1");
-    const text = document.getElementById("tutorial-text");
+function hideLoadingScreen() {
+    document.getElementById("loading-error").style.display = "none";
+    document.querySelector("main").style.visibility = "visible";
+    document.getElementById("loading-screen").style.opacity = "0";
+    setTimeout(() => {
+        document.getElementById("loading-screen").remove();
+    }, 200);
+    document.getElementById("loading-screen").style.pointerEvents = "none";
+}
 
-    el.onclick = () => {
-        el.onclick = () => {};
-        text.textContent = "This is an input. Specifically a text input.";
+function traverseElements(element, callback, depth = 0) {
+    callback(element, depth);
 
-        let wait = setTimeout(function () {
-            text.textContent += "\n\rThat means you can type in it by the way.";
-        }, 10000);
+    for (const child of element.children) {
+        traverseElements(child, callback, depth + 1);
+    }
+}
 
-        let tutorial1 = () => {
-            el.removeEventListener("input", tutorial1);
+function randomColor(seed) {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
 
-            clearTimeout(wait);
-            text.textContent = "Okay? Cool. See how it says (name) underneath?\n\rThat's a hint. You can use it to figure out what to type.";
-
-            setTimeout(function () {
-                text.textContent += "\n\rAfter you're done entering your name or just a random one, press enter to submit.";
-            }, 5000);
-        };
-        el.addEventListener("input", tutorial1);
-    };
+    for (let i = 0; i < 6; i++) {
+        if (seed !== undefined) {
+            seed = (seed * 9301 + 49297) % 233280;
+            color += letters[Math.floor((seed / 233280) * 16)];
+        } else {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+    }
+    return color;
 }
