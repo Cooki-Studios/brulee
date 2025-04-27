@@ -1,4 +1,4 @@
-#loading-screen {
+#loading-screen, #info {
     background-color: #A822FC;
 }
 
@@ -59,7 +59,14 @@ main {
 
 main:hover, main *:hover {
     --hover-outline-color: transparent;
-    outline: 2px dashed var(--hover-outline-color, transparent);
+    outline: 2px solid var(--hover-outline-color, transparent);
+    outline-offset: -2px;
     background-color: color-mix(in srgb, var(--hover-outline-color, transparent) 5%, transparent);
-    pointer-events: auto;
+}
+
+main.hover, main *.hover {
+    --hover-outline-color: transparent;
+    outline: 2px solid var(--hover-outline-color, transparent);
+    outline-offset: -2px;
+    background-color: color-mix(in srgb, var(--hover-outline-color, transparent) 5%, transparent);
 }

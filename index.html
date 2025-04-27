@@ -5,17 +5,22 @@
 	<meta charset="UTF-8">
 	<title>Cooki Brûlée</title>
 	<link rel="preload" href="img/logo.svg" as="image" type="image/svg+xml" />
+	<link rel="preload" href="img/loading_circle.svg" as="image" type="image/svg+xml">
+	<link rel="preload" href="img/loading_dot.svg" as="image" type="image/svg+xml">
 	<link rel="shortcut icon" href="img/logo.svg" type="image/svg+xml">
-	<style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-	</style>
+	<link rel="preconnect" href="https://rsms.me/">
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 	<link rel="stylesheet" href="styles/style.css">
+	<script src="scripts/load.js" async type="module"></script>
 </head>
 <body>
 	<div id="loading-screen">
 		<p id="loading-error">Please enable CSS and JavaScript in your browser to run this application.</p>
 		<div id="loading-logo"></div>
-		<div id="loading-circle"></div>
+		<div id="loading-circle-container">
+			<div id="loading-circle"></div>
+			<div id="loading-dot"></div>
+		</div>
 	</div>
 	<main>
 		<form id="main-container">
@@ -23,9 +28,6 @@
 		</form>
 	</main>
 	<button id="swap-page" onclick="location.href='scripting'">Switch to Scripting Mode</button>
-	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" type="module"></script>
-	<script src="scripts/fillintheblanks.js"></script>
-	<script src="scripts/load.js"></script>
 	<script src="scripts/tutorial.js"></script>
 </body>
 </html>

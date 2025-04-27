@@ -1,28 +1,28 @@
 {
 	"name": "Cooki Brûlée",
 	"short_name": "Brûlée",
-	"start_url": "https://cookistudios.com/brulee",
+	"start_url": "./",
 	"id": "Cooki_Brulee",
 	"description": "Memorise Content",
 	"theme_color": "#151515",
 	"display": "standalone",
-	"scope": "https://cookistudios.com/brulee",
+	"scope": "/",
 	"icons": [
 		{
-			"src": "https://cookistudios.com/brulee/img/icons/android-chrome-192x192.png",
+			"src": "./img/icons/android-chrome-192x192.png",
 			"type": "image/png",
 			"sizes": "192x192",
 			"purpose": "any maskable"
 		},
 		{
-			"src": "https://cookistudios.com/brulee/img/icons/android-chrome-512x512.png",
+			"src": "./img/icons/android-chrome-512x512.png",
 			"type": "image/png",
 			"sizes": "512x512",
 			"purpose": "any maskable"
 		},
 		{
-			"src": "https://cookistudios.com/brulee/img/icons/android-chrome-512x512.png",
-			"type": "image/png",
+			"src": "./img/logo.svg",
+			"type": "image/svg+xml",
 			"sizes": "any",
 			"purpose": "any maskable"
 		}
@@ -31,7 +31,7 @@
 		{
 			"name": "Script Editor",
 			"short_name": "Scripting",
-			"url": "https://cookistudios.com/brulee/scripting"
+			"url": "./scripting"
 		}
 	],
 	"prefer_related_applications": false,

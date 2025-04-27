@@ -3,14 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cooki Brûlée - Scripting</title>
-	<link rel="shortcut icon" href="img/logo.svg" type="image/svg+xml">
+	<link rel="preload" href="img/logo.svg" as="image" type="image/svg+xml">
+	<link rel="preload" href="img/blowtorch.svg" as="image" type="image/svg+xml">
+	<link rel="preload" href="img/loading_circle.svg" as="image" type="image/svg+xml">
+	<link rel="preload" href="img/loading_dot.svg" as="image" type="image/svg+xml">
 	<link rel="shortcut icon" href="img/blowtorch.svg" type="image/svg+xml">
-	<link rel="shortcut icon" href="img/blowtorch.svg" type="image/svg+xml">
-	<style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-	</style>
+	<link rel="preconnect" href="https://rsms.me/">
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="styles/scripting.css">
+	<script src="scripts/load.js" async type="module"></script>
 </head>
 <body>
 	<div id="loading-screen">
@@ -19,8 +21,12 @@
 			<div id="loading-torch"></div>
 		</div>
 		<div id="loading-logo"></div>
-		<div id="loading-circle"></div>
+		<div id="loading-circle-container">
+			<div id="loading-circle"></div>
+			<div id="loading-dot"></div>
+		</div>
 	</div>
+	<p id="info"></p>
 	<main>
 		<form id="main-container">
 
@@ -28,9 +34,6 @@
 	</main>
 	<canvas id="canvas"></canvas>
 	<button id="swap-page" onclick="location.href='.'">Switch to Using Mode</button>
-	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" type="module"></script>
-	<script src="scripts/fillintheblanks.js"></script>
-	<script src="scripts/load.js"></script>
-	<script src="scripts/scripting.js"></script>
+	<script src="scripts/scripting.js" type="module"></script>
 </body>
 </html>

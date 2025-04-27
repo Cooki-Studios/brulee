@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "scripts",
+    "target": "ES2024",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2024"
+    ],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "module": "ES2022"
+  }
+}
